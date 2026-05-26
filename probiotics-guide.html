@@ -26,6 +26,19 @@
   .alert-card.green { border-color: #40916c; }
   .alert-card.blue { border-color: #457b9d; }
 
+  .compact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .compact-card { background: white; border-radius: 12px; padding: 14px 12px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid; }
+  .compact-card.red { border-color: #e63946; }
+  .compact-card.orange { border-color: #f4a261; }
+  .compact-card.green { border-color: #40916c; }
+  .compact-card.blue { border-color: #457b9d; }
+  .compact-card .big { font-size: 24px; flex-shrink: 0; }
+  .compact-card div { font-size: 13px; color: #333; line-height: 1.4; }
+  .compact-card.red div strong { color: #c1121f; }
+  .compact-card.orange div strong { color: #9d4f04; }
+  .compact-card.blue div strong { color: #1d3557; }
+  .compact-card.green div strong { color: #2d6a4f; }
+
   .alert-icon { font-size: 28px; margin-bottom: 8px; }
   .alert-label { font-size: 11px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
   .alert-text { font-size: 16px; font-weight: 700; color: #222; line-height: 1.5; }
@@ -69,32 +82,13 @@
 <!-- 注意事项 -->
 <div class="section">
   <div class="section-title"><span>⚠️</span>注意事项</div>
-  <div class="alert-grid">
-    <div class="alert-card red">
-      <div class="alert-icon">👶</div>
-      <div class="alert-label">慎用人群</div>
-      <div class="alert-text">益生菌一般不建议<br>3岁以下婴幼儿服用</div>
-    </div>
-    <div class="alert-card orange">
-      <div class="alert-icon">🤰</div>
-      <div class="alert-label">慎用人群</div>
-      <div class="alert-text">益生元一般不建议<br>孕妇、哺乳期、14岁以下人群服用</div>
-    </div>
-    <div class="alert-card blue">
-      <div class="alert-icon">🩺</div>
-      <div class="alert-label">慢病提醒</div>
-      <div class="alert-text">糖尿病患者请遵医嘱</div>
-    </div>
-    <div class="alert-card green">
-      <div class="alert-icon">⏰</div>
-      <div class="alert-label">配伍禁忌</div>
-      <div class="alert-text">酒/茶/咖啡/中西药等<br>需间隔1小时以上服用</div>
-    </div>
-  </div>
-  <div class="alert-card green" style="margin-top:14px; border-color: #e63946;">
-    <div class="alert-icon">💊</div>
-    <div class="alert-label" style="color:#c1121f;">重要提醒</div>
-    <div class="alert-text" style="color:#c1121f;">避免服用抗生素前后2小时内使用<br>开封后请尽快服用</div>
+  <div class="compact-grid">
+    <div class="compact-card red"><span class="big">👶</span><div><strong>3岁以下婴幼儿</strong><br>不建议服用益生菌</div></div>
+    <div class="compact-card orange"><span class="big">🤰</span><div><strong>孕妇 / 哺乳期 / 14岁以下</strong><br>不建议服用益生元</div></div>
+    <div class="compact-card blue"><span class="big">🩺</span><div><strong>糖尿病患者</strong><br>请遵医嘱</div></div>
+    <div class="compact-card green"><span class="big">⏰</span><div><strong>酒/茶/咖啡/中西药</strong><br>需间隔1小时以上</div></div>
+    <div class="compact-card red"><span class="big">💊</span><div><strong>抗生素</strong><br>前后2小时内禁用</div></div>
+    <div class="compact-card orange"><span class="big">🔓</span><div><strong>开封后</strong><br>请尽快服用</div></div>
   </div>
 </div>
 
