@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>益生菌服用指南</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f4f8; color: #222; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%); color: white; padding: 40px 24px; text-align: center; }
+  .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+  .header p { font-size: 15px; opacity: 0.9; }
+
+  /* Section */
+  .section { padding: 28px 20px; max-width: 900px; margin: 0 auto; }
+  .section-title { font-size: 20px; font-weight: 800; color: #2d6a4f; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+  .section-title span { font-size: 24px; }
+
+  /* Alert cards */
+  .alert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .alert-card { background: white; border-radius: 16px; padding: 20px 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border-left: 5px solid; }
+  .alert-card.red { border-color: #e63946; }
+  .alert-card.orange { border-color: #f4a261; }
+  .alert-card.green { border-color: #40916c; }
+  .alert-card.blue { border-color: #457b9d; }
+
+  .alert-icon { font-size: 28px; margin-bottom: 8px; }
+  .alert-label { font-size: 11px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .alert-text { font-size: 16px; font-weight: 700; color: #222; line-height: 1.5; }
+  .alert-card.red .alert-text { color: #c1121f; }
+  .alert-card.orange .alert-text { color: #9d4f04; }
+  .alert-card.green .alert-text { color: #2d6a4f; }
+  .alert-card.blue .alert-text { color: #1d3557; }
+
+  /* Usage section */
+  .usage-card { background: white; border-radius: 16px; padding: 24px 20px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .usage-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .usage-badge { background: linear-gradient(135deg, #2d6a4f, #40916c); color: white; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; }
+  .usage-title { font-size: 18px; font-weight: 800; color: #1a1a2e; }
+  .usage-subtitle { font-size: 12px; color: #888; margin-top: 2px; }
+  .usage-time { display: inline-block; background: #e8f5e9; color: #2d6a4f; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .usage-body { font-size: 15px; color: #333; line-height: 1.8; }
+  .usage-body strong { color: #2d6a4f; }
+  .usage-note { background: #fff9e6; border-radius: 10px; padding: 10px 14px; margin-top: 10px; font-size: 13px; color: #7a5a00; line-height: 1.6; }
+
+  /* Disclaimer */
+  .disclaimer { background: white; border-radius: 16px; padding: 20px 24px; margin: 0 auto 30px; max-width: 900px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .disclaimer-title { font-size: 14px; font-weight: 700; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .disclaimer-text { font-size: 14px; color: #666; line-height: 1.7; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: #aaa; }
+
+  @media (max-width: 640px) {
+    .header h1 { font-size: 22px; }
+    .alert-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>💊 益生菌服用指南</h1>
+  <p>科学服用 · 效果更佳</p>
+</div>
+
+<!-- 注意事项 -->
+<div class="section">
+  <div class="section-title"><span>⚠️</span>注意事项</div>
+  <div class="alert-grid">
+    <div class="alert-card red">
+      <div class="alert-icon">👶</div>
+      <div class="alert-label">慎用人群</div>
+      <div class="alert-text">益生菌一般不建议<br>3岁以下婴幼儿服用</div>
+    </div>
+    <div class="alert-card orange">
+      <div class="alert-icon">🤰</div>
+      <div class="alert-label">慎用人群</div>
+      <div class="alert-text">益生元一般不建议<br>孕妇、哺乳期、14岁以下人群服用</div>
+    </div>
+    <div class="alert-card blue">
+      <div class="alert-icon">🩺</div>
+      <div class="alert-label">慢病提醒</div>
+      <div class="alert-text">糖尿病患者请遵医嘱</div>
+    </div>
+    <div class="alert-card green">
+      <div class="alert-icon">⏰</div>
+      <div class="alert-label">配伍禁忌</div>
+      <div class="alert-text">酒/茶/咖啡/中西药等<br>需间隔1小时以上服用</div>
+    </div>
+  </div>
+  <div class="alert-card green" style="margin-top:14px; border-color: #e63946;">
+    <div class="alert-icon">💊</div>
+    <div class="alert-label" style="color:#c1121f;">重要提醒</div>
+    <div class="alert-text" style="color:#c1121f;">避免服用抗生素前后2小时内使用<br>开封后请尽快服用</div>
+  </div>
+</div>
+
+<!-- 使用说明 -->
+<div class="section">
+  <div class="section-title"><span>📋</span>使用说明</div>
+
+  <div class="usage-card">
+    <div class="usage-header">
+      <div class="usage-badge">🌅</div>
+      <div>
+        <div class="usage-title">早安饮</div>
+        <div class="usage-subtitle">早餐后半小时服用</div>
+      </div>
+    </div>
+    <div class="usage-time">⏰ 早餐后半小时</div>
+    <div class="usage-body">
+      开袋即饮，服用后可饮用一杯温水。<br>
+      <strong>效果：</strong>帮助调节肠道菌群，开启活力一天。
+    </div>
+    <div class="usage-note">💧 服用后可饮用一杯温水，帮助益生菌到达肠道</div>
+  </div>
+
+  <div class="usage-card">
+    <div class="usage-header">
+      <div class="usage-badge">🌙</div>
+      <div>
+        <div class="usage-title">晚安饮</div>
+        <div class="usage-subtitle">晚餐后半小时或睡前半小时服用</div>
+      </div>
+    </div>
+    <div class="usage-time">⏰ 晚餐后半小时 / 睡前半小时</div>
+    <div class="usage-body">
+      开袋即饮，服用后可饮用一杯温水。<br>
+      <strong>效果：</strong>夜间肠道蠕动减缓，益生菌更容易在肠道定植。
+    </div>
+    <div class="usage-note">💧 服用后可饮用一杯温水，帮助益生菌到达肠道</div>
+  </div>
+
+  <div class="usage-card">
+    <div class="usage-header">
+      <div class="usage-badge">💚</div>
+      <div>
+        <div class="usage-title">益生菌胶囊</div>
+        <div class="usage-subtitle">每天1颗，开瓶即食</div>
+      </div>
+    </div>
+    <div class="usage-time">⏰ 早中晚餐后均可，餐后半小时效果最佳</div>
+    <div class="usage-body">
+      开瓶即食，也可加入<strong>温水（37度以下）</strong>或<strong>牛奶</strong>中搅拌均匀后饮用。<br>
+      <strong>注意：</strong>早中晚餐后都可以服用，<strong>餐后半小时效果最佳</strong>。
+    </div>
+    <div class="usage-note">🌡️ 水温不要超过37°C，避免高温杀死益生菌</div>
+  </div>
+</div>
+
+<!-- 免责声明 -->
+<div class="disclaimer">
+  <div class="disclaimer-title">📌 免责声明</div>
+  <div class="disclaimer-text">
+    本指南仅供参考，具体服用请遵医嘱。如有特殊健康状况，请在服用前咨询医生或专业人士意见。
+  </div>
+</div>
+
+<div class="footer">
+  资料整理自产品说明书 · 仅供参考
+</div>
+
+</body>
+</html>
