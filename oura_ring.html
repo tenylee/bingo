@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oura Ring 智能戒指</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f4f8; color: #222; }
+
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #3d2c8d 100%); color: white; padding: 40px 24px; text-align: center; }
+  .header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+  .header p { font-size: 15px; opacity: 0.85; }
+
+  .section { padding: 28px 20px; max-width: 900px; margin: 0 auto; }
+  .section-title { font-size: 20px; font-weight: 800; color: #3d2c8d; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-title span { font-size: 24px; }
+
+  .intro-card { background: white; border-radius: 16px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .intro-card h2 { font-size: 22px; font-weight: 800; color: #1a1a2e; margin-bottom: 10px; }
+  .intro-card p { font-size: 16px; color: #444; line-height: 1.7; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag { background: #3d2c8d; color: white; padding: 5px 14px; border-radius: 20px; font-size: 13px; }
+
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .feat-card { background: white; border-radius: 16px; padding: 20px 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .feat-icon { font-size: 32px; margin-bottom: 10px; }
+  .feat-title { font-size: 17px; font-weight: 800; color: #1a1a2e; margin-bottom: 6px; }
+  .feat-desc { font-size: 14px; color: #555; line-height: 1.6; }
+  .feat-detail { background: #f5f5ff; border-radius: 10px; padding: 10px 14px; margin-top: 10px; font-size: 13px; color: #3d2c8d; line-height: 1.6; }
+
+  .compare-card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 20px; }
+  .compare-title { font-size: 18px; font-weight: 800; color: #1a1a2e; margin-bottom: 14px; }
+  .compare-table { width: 100%; border-collapse: collapse; }
+  .compare-table th { background: #3d2c8d; color: white; padding: 12px 16px; font-size: 14px; font-weight: 700; text-align: left; }
+  .compare-table td { padding: 12px 16px; font-size: 14px; color: #333; border-bottom: 1px solid #f0f0f0; background: #fafafa; }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  .users-card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .user-tag { display: inline-block; background: #e8f0ff; color: #3d2c8d; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin: 4px 4px 4px 0; }
+
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: #aaa; }
+
+  @media (max-width: 640px) {
+    .header h1 { font-size: 22px; }
+    .compare-table { display: block; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>💍 Oura Ring 智能戒指</h1>
+  <p>无感佩戴 · 全天候健康监测</p>
+</div>
+
+<div class="section">
+  <div class="intro-card">
+    <h2>一句话介绍</h2>
+    <p>Oura Ring 是一款无显示屏的智能戒指，通过指腹传感器全天候监测睡眠、心率、血氧、体温等指标，帮助用户量化健康状态、预警疾病风险。</p>
+    <div class="tag-row">
+      <span class="tag">💍 无感佩戴</span>
+      <span class="tag">😴 睡眠追踪</span>
+      <span class="tag">❤️ 心率血氧</span>
+      <span class="tag">🌡️ 体温监测</span>
+      <span class="tag">📊 Ready评分</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span>🔬</span>核心功能</div>
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon">😴</div>
+      <div class="feat-title">睡眠分析</div>
+      <div class="feat-desc">自动追踪 REM（快速眼动）、深度睡眠、浅睡阶段，计算每日睡眠分数</div>
+      <div class="feat-detail">REM睡眠：大脑恢复；深度睡眠：身体恢复；分数越高 = 睡眠质量越好</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">❤️</div>
+      <div class="feat-title">心率 & 血氧 & HRV</div>
+      <div class="feat-desc">全天候监测静息心率、血氧饱和度、HRV（心率变异性）</div>
+      <div class="feat-detail">HRV越高 = 自主神经系统越健康，压力耐受越强</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🌡️</div>
+      <div class="feat-title">体温监测</div>
+      <div class="feat-desc">连续测量皮肤温度变化，捕捉细微体温波动</div>
+      <div class="feat-detail">可预警疾病早期信号；女性可追踪生理期、排卵期</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📊</div>
+      <div class="feat-title">Ready 得分</div>
+      <div class="feat-desc">综合睡眠、恢复、アクティビティ，给出今日状态评分（0-100）</div>
+      <div class="feat-detail">≥80分：状态佳，适合高强度训练；<60分：建议休息恢复</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🏃</div>
+      <div class="feat-title">活动追踪</div>
+      <div class="feat-desc">记录步数、卡路里、主动活动时间，追踪每日运动目标</div>
+      <div class="feat-detail">结合睡眠数据，给出个性化活动建议，避免过度训练</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span>🎯</span>适用人群</div>
+  <div class="users-card">
+    <span class="user-tag">睡眠质量差人群</span>
+    <span class="user-tag">慢性病（高血压/糖尿病）患者</span>
+    <span class="user-tag">备孕 / 孕期 / 更年期女性</span>
+    <span class="user-tag">健身 / 马拉松爱好者</span>
+    <span class="user-tag">经常出差 / 熬夜人群</span>
+    <span class="user-tag">希望早期预警健康风险者</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span>⚔️</span>和 Apple Watch 的区别</div>
+  <div class="compare-card">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>对比项</th>
+          <th>Oura Ring</th>
+          <th>Apple Watch</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>佩戴形式</td>
+          <td>戒指，无屏幕，睡觉也可戴</td>
+          <td>手表，较大，睡觉硌手腕</td>
+        </tr>
+        <tr>
+          <td>睡眠监测</td>
+          <td>★★★★★ 专业级</td>
+          <td>★★★☆☆ 基础</td>
+        </tr>
+        <tr>
+          <td>体温监测</td>
+          <td>✓ 连续，精度高</td>
+          <td>✗ 无</td>
+        </tr>
+        <tr>
+          <td>血氧监测</td>
+          <td>✓ 连续</td>
+          <td>✓ 单次测量</td>
+        </tr>
+        <tr>
+          <td>电池续航</td>
+          <td>4-7天</td>
+          <td>1-2天</td>
+        </tr>
+        <tr>
+          <td>重量</td>
+          <td>4-6g，佩戴无感</td>
+          <td>30-50g，有存在感</td>
+        </tr>
+        <tr>
+          <td>适合人群</td>
+          <td>注重健康量化、生活习惯改善</td>
+          <td>需要通知、通话、支付等智能功能</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  Oura Ring 功能简介 · 仅供参考
+</div>
+
+</body>
+</html>
