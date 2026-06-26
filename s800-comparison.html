@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>尊界S800 普通版 vs 典藏大观 对比图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f8; color: #222; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5a 100%); color: white; padding: 40px 24px; text-align: center; }
+  .header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+  .header p { font-size: 14px; opacity: 0.8; }
+
+  /* Section */
+  .section { padding: 24px 20px; max-width: 900px; margin: 0 auto; }
+
+  /* Dimension title */
+  .dim-title { font-size: 18px; font-weight: 800; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .dim-title .num { background: #1a1a2e; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  .dim-sub { font-size: 13px; color: #888; font-weight: 400; margin-left: auto; }
+
+  /* Compare grid */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+  .compare-card { background: white; border-radius: 16px; padding: 20px 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .compare-card.basic { border-top: 4px solid #f39c12; }
+  .compare-card.collect { border-top: 4px solid #8e44ad; }
+
+  .card-label { font-size: 12px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .card-label.basic { color: #c27d00; }
+  .card-label.collect { color: #6c3483; }
+
+  .card-title { font-size: 18px; font-weight: 800; color: #111; margin-bottom: 12px; }
+  .card-price { font-size: 28px; font-weight: 800; color: #111; margin-bottom: 4px; }
+  .card-price-note { font-size: 12px; color: #888; }
+  .card-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 10px; font-size: 14px; color: #333; line-height: 1.5; }
+  .card-item .icon { flex-shrink: 0; margin-top: 2px; }
+  .card-item .text { flex: 1; }
+
+  /* Winner badge */
+  .winner { display: inline-block; background: #27ae60; color: white; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-top: 6px; }
+
+  /* Summary table */
+  .summary-section { background: white; border-radius: 20px; padding: 24px 22px; margin-bottom: 16px; box-shadow: 0 3px 16px rgba(0,0,0,0.08); }
+  .summary-title { font-size: 18px; font-weight: 800; color: #1a1a2e; margin-bottom: 16px; text-align: center; }
+  .summary-table { width: 100%; border-collapse: collapse; }
+  .summary-table th { background: #1a1a2e; color: white; padding: 12px 16px; font-size: 14px; font-weight: 700; text-align: center; }
+  .summary-table th:first-child { border-radius: 10px 0 0 0; text-align: left; }
+  .summary-table th:last-child { border-radius: 0 10px 0 0; }
+  .summary-table td { padding: 13px 16px; font-size: 14px; color: #333; border-bottom: 1px solid #f0f0f0; background: #fafafa; vertical-align: top; line-height: 1.5; }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:hover td { background: #f0f4ff; }
+  .summary-table td:first-child { font-weight: 700; color: #111; background: #f5f5f5; }
+  .summary-table .winner-cell { text-align: center; font-weight: 700; }
+  .summary-table .basic-win { color: #c27d00; }
+  .summary-table .collect-win { color: #6c3483; }
+  .summary-table .neutral { color: #888; font-size: 13px; }
+
+  /* Verdict */
+  .verdict-section { background: white; border-radius: 20px; padding: 24px 22px; box-shadow: 0 3px 16px rgba(0,0,0,0.08); }
+  .verdict-title { font-size: 18px; font-weight: 800; color: #1a1a2e; margin-bottom: 14px; }
+  .verdict-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .verdict-item { background: #f8f9fc; border-radius: 12px; padding: 14px; text-align: center; font-size: 13px; color: #555; line-height: 1.6; }
+  .verdict-item .dim-n { font-size: 11px; color: #888; margin-bottom: 4px; }
+  .verdict-item .result { font-weight: 800; margin-top: 6px; }
+  .verdict-item .basic-result { color: #c27d00; }
+  .verdict-item .collect-result { color: #6c3483; }
+  .verdict-item .neutral-result { color: #555; }
+
+  .final-box { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5a 100%); border-radius: 14px; padding: 20px; color: white; text-align: center; }
+  .final-label { font-size: 12px; opacity: 0.7; margin-bottom: 8px; }
+  .final-text { font-size: 16px; font-weight: 700; line-height: 1.7; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: #aaa; max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 640px) {
+    .header h1 { font-size: 21px; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .verdict-row { grid-template-columns: 1fr; }
+    .summary-table { display: block; overflow-x: auto; }
+    .summary-table th, .summary-table td { min-width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🚘 尊界 S800 普通版 vs 典藏大观</h1>
+  <p>5维度客观对比 · 不替您做决定 · 只呈现事实</p>
+</div>
+
+<div class="section">
+
+  <!-- 价格对比 -->
+  <div class="compare-grid" style="margin-bottom:24px;">
+    <div class="compare-card basic">
+      <div class="card-label basic">普通版 S800</div>
+      <div class="card-price">70.8万起</div>
+      <div class="card-price-note">+ 选配后 ≈ 100万+</div>
+    </div>
+    <div class="compare-card collect">
+      <div class="card-label collect">典藏大观 Grand Design</div>
+      <div class="card-price">138.8万起</div>
+      <div class="card-price-note">一步到位 · 配置拉满</div>
+    </div>
+  </div>
+
+  <!-- 1. 外观 -->
+  <div class="dim-title">
+    <div class="num">1</div>
+    外观 + 内饰
+    <div class="dim-sub">透亮 vs 暗沉</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card basic">
+      <div class="card-title">基础版 ✅</div>
+      <div class="card-item"><span class="icon">🪟</span><span class="text">内饰透亮，光线充足</span></div>
+      <div class="card-item"><span class="icon">😊</span><span class="text">让人身心愉悦，好心情更好赚钱</span></div>
+      <div class="winner">更适合日常使用</div>
+    </div>
+    <div class="compare-card collect">
+      <div class="card-title">典藏版</div>
+      <div class="card-item"><span class="icon">🌙</span><span class="text">内饰暗沉，气场足</span></div>
+      <div class="card-item"><span class="icon">🏛️</span><span class="text">东方豪华氛围感更强</span></div>
+    </div>
+  </div>
+
+  <!-- 2. 使用场景 -->
+  <div class="dim-title">
+    <div class="num">2</div>
+    使用场景
+    <div class="dim-sub">日常 + 长途 + 接待</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card basic">
+      <div class="card-title">基础版</div>
+      <div class="card-item"><span class="icon">✅</span><span class="text">日常代步完全满足</span></div>
+      <div class="card-item"><span class="icon">✅</span><span class="text">接客人不失礼节</span></div>
+      <div class="card-item"><span class="icon">✅</span><span class="text">长途高速L2+完全够用</span></div>
+      <div class="card-item"><span class="icon">💺</span><span class="text">后排乘坐体验：客人感知差异不大</span></div>
+    </div>
+    <div class="compare-card collect">
+      <div class="card-title">典藏版</div>
+      <div class="card-item"><span class="icon">✅</span><span class="text">所有场景均满足</span></div>
+      <div class="card-item"><span class="icon">✅</span><span class="text">零重力座椅+冰箱+屏幕更豪华</span></div>
+      <div class="card-item"><span class="icon">⚠️</span><span class="text">高段位客人也不会在后座躺着看电影</span></div>
+      <div class="card-item"><span class="icon">🤝</span><span class="text">核心受益人：你和亲近的朋友</span></div>
+    </div>
+  </div>
+
+  <!-- 3. 智能驾驶 -->
+  <div class="dim-title">
+    <div class="num">3</div>
+    智能驾驶
+    <div class="dim-sub">技术成熟度分析</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card basic">
+      <div class="card-title">基础版</div>
+      <div class="card-item"><span class="icon">📡</span><span class="text">ADS 3.0/4.0 · 4颗激光雷达</span></div>
+      <div class="card-item"><span class="icon">🛣️</span><span class="text">高速NCA+城区NCA（L2+级）</span></div>
+      <div class="card-item"><span class="icon">🔄</span><span class="text">4雷达：满足日常所有场景</span></div>
+      <div class="card-item"><span class="icon">🔮</span><span class="text">技术迭代快：2-3年后硬件仍需升级</span></div>
+      <div class="card-item"><span class="icon">💡</span><span class="text">等技术成熟再买顶配更划算</span></div>
+    </div>
+    <div class="compare-card collect">
+      <div class="card-title">典藏版 ✅</div>
+      <div class="card-item"><span class="icon">📡</span><span class="text">ADS 5（最新代）· 6颗激光雷达</span></div>
+      <div class="card-item"><span class="icon">🛡️</span><span class="text">全链路双冗余，安全冗余更高</span></div>
+      <div class="card-item"><span class="icon">⚠️</span><span class="text">国内所有L3均未达真正L3（含华为销售确认）</span></div>
+      <div class="card-item"><span class="icon">🚗</span><span class="text">长途高速仍需代驾（技术局限）</span></div>
+      <div class="card-item"><span class="icon">🔮</span><span class="text">预埋硬件，法规开放后OTA升级</span></div>
+      <div class="winner">硬件预埋更面向未来</div>
+    </div>
+  </div>
+
+  <!-- 4. 消费观 -->
+  <div class="dim-title">
+    <div class="num">4</div>
+    消费观 & 价值观
+    <div class="dim-sub">性价比 vs 一步到位</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card basic">
+      <div class="card-title">基础版逻辑</div>
+      <div class="card-item"><span class="icon">💰</span><span class="text">满足喜欢，顶配加起来100+</span></div>
+      <div class="card-item"><span class="icon">🫰</span><span class="text">花钱花在刀刃上</span></div>
+      <div class="card-item"><span class="icon">🤔</span><span class="text">100万+买基础版顶配，可能会觉得配置不够全</span></div>
+    </div>
+    <div class="compare-card collect">
+      <div class="card-title">典藏版逻辑 ✅</div>
+      <div class="card-item"><span class="icon">💎</span><span class="text">138万包含所有最好配置</span></div>
+      <div class="card-item"><span class="icon">🎯</span><span class="text">差价不大，能有的都是最好的</span></div>
+      <div class="card-item"><span class="icon">🧠</span><span class="text">大众思维：既然买就买最好的</span></div>
+      <div class="winner">一步到位，无遗憾</div>
+    </div>
+  </div>
+
+  <!-- 5. 别人怎么看 -->
+  <div class="dim-title">
+    <div class="num">5</div>
+    别人的看法
+    <div class="dim-sub">面子与舆论</div>
+  </div>
+  <div class="compare-grid">
+    <div class="compare-card basic">
+      <div class="card-title">基础版顶配</div>
+      <div class="card-item"><span class="icon">🤷</span><span class="text">可能有人问："怎么不买个最好的？"</span></div>
+      <div class="card-item"><span class="icon">💬</span><span class="text">"不差那点钱吧，怎么不上顶配？"</span></div>
+      <div class="card-item"><span class="icon">😤</span><span class="text">存在舆论压力和心理负担</span></div>
+    </div>
+    <div class="compare-card collect">
+      <div class="card-title">典藏版 ✅</div>
+      <div class="card-item"><span class="icon">🏆</span><span class="text">已经买了最好的顶配</span></div>
+      <div class="card-item"><span class="icon">😌</span><span class="text">不存在"为什么不上顶配"的争议</span></div>
+      <div class="card-item"><span class="icon">💪</span><span class="text">没有舆论压力，心里踏实</span></div>
+      <div class="winner">面子维度完胜</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 汇总表 -->
+<div class="section">
+  <div class="summary-section">
+    <div class="summary-title">📊 5维度汇总对比</div>
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>基础版 S800（70.8万起）</th>
+          <th>典藏大观（138.8万起）</th>
+          <th>谁更适合</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. 外观内饰</td>
+          <td>透亮愉悦 · 心情好<br><span style="color:#888;font-size:12px;">日常使用更舒适</span></td>
+          <td>暗沉气场强<br><span style="color:#888;font-size:12px;">东方豪华氛围感</span></td>
+          <td class="winner-cell basic-win">基础版 ✅</td>
+        </tr>
+        <tr>
+          <td>2. 使用场景</td>
+          <td>日常+长途+接待均满足<br><span style="color:#888;font-size:12px;">客人感知差异不大</span></td>
+          <td>配置更豪华<br><span style="color:#888;font-size:12px;">核心受益人是你自己</span></td>
+          <td class="winner-cell neutral">持平</td>
+        </tr>
+        <tr>
+          <td>3. 智能驾驶</td>
+          <td>L2+ · 4雷达<br><span style="color:#888;font-size:12px;">等技术成熟再买顶配更划算</span></td>
+          <td>ADS5 · 6雷达 · 全链路冗余<br><span style="color:#888;font-size:12px;">预埋硬件 · 面向未来</span></td>
+          <td class="winner-cell collect-win">典藏版 ✅</td>
+        </tr>
+        <tr>
+          <td>4. 消费价值观</td>
+          <td>性价比逻辑<br><span style="color:#888;font-size:12px;">花钱在刀刃上</span></td>
+          <td>一步到位逻辑<br><span style="color:#888;font-size:12px;">所有能有的都是最好的</span></td>
+          <td class="winner-cell neutral">看价值观</td>
+        </tr>
+        <tr>
+          <td>5. 别人看法</td>
+          <td>可能存在舆论压力<br><span style="color:#888;font-size:12px;">"怎么不上顶配？"</span></td>
+          <td>无舆论压力<br><span style="color:#888;font-size:12px;">买了最好的，无争议</span></td>
+          <td class="winner-cell collect-win">典藏版 ✅</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 结论 -->
+  <div class="verdict-section">
+    <div class="verdict-title">📋 最终判断</div>
+    <div class="verdict-row">
+      <div class="verdict-item">
+        <div class="dim-n">维度 1</div>
+        外观内饰
+        <div class="result basic-result">基础版 ✅</div>
+      </div>
+      <div class="verdict-item">
+        <div class="dim-n">维度 2</div>
+        使用场景
+        <div class="result neutral-result">持平</div>
+      </div>
+      <div class="verdict-item">
+        <div class="dim-n">维度 3</div>
+        智能驾驶
+        <div class="result collect-result">典藏版 ✅</div>
+      </div>
+    </div>
+    <div class="verdict-row">
+      <div class="verdict-item">
+        <div class="dim-n">维度 4</div>
+        消费观
+        <div class="result neutral-result">看价值观</div>
+      </div>
+      <div class="verdict-item">
+        <div class="dim-n">维度 5</div>
+        别人看法
+        <div class="result collect-result">典藏版 ✅</div>
+      </div>
+      <div class="verdict-item">
+        <div class="dim-n">价格</div>
+        差价
+        <div class="result neutral-result">+68万</div>
+      </div>
+    </div>
+    <div class="final-box">
+      <div class="final-label">最终核心问题</div>
+      <div class="final-text">
+        "抛开钱不说，你买的是 <strong>享受</strong>，还是买 <strong>别人眼中的好</strong>？"<br><br>
+        这个问题，只有您自己能回答。
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  本对比仅供参考，最终决策请结合实际情况判断
+</div>
+
+</body>
+</html>
