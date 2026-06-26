@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>汽车自动驾驶级别图解</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f8; color: #222; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%); color: white; padding: 40px 24px; text-align: center; }
+  .header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+  .header p { font-size: 14px; opacity: 0.8; }
+  .header .source { font-size: 12px; opacity: 0.6; margin-top: 6px; }
+
+  /* Section */
+  .section { padding: 28px 20px; max-width: 900px; margin: 0 auto; }
+  .section-title { font-size: 20px; font-weight: 800; color: #1a3a5c; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-title span { font-size: 24px; }
+
+  /* Level cards */
+  .level-card { background: white; border-radius: 16px; padding: 22px 20px; margin-bottom: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); position: relative; overflow: hidden; }
+  .level-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+  .level-card.l0::before { background: #888; }
+  .level-card.l1::before { background: #4a90e2; }
+  .level-card.l2::before { background: #27ae60; }
+  .level-card.l3::before { background: #f39c12; }
+  .level-card.l4::before { background: #8e44ad; }
+  .level-card.l5::before { background: #e74c3c; }
+
+  .level-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .level-badge { font-size: 22px; font-weight: 900; color: white; background: #1a3a5c; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .level-card.l0 .level-badge { background: #888; }
+  .level-card.l1 .level-badge { background: #4a90e2; }
+  .level-card.l2 .level-badge { background: #27ae60; }
+  .level-card.l3 .level-badge { background: #f39c12; }
+  .level-card.l4 .level-badge { background: #8e44ad; }
+  .level-card.l5 .level-badge { background: #e74c3c; }
+
+  .level-title { font-size: 19px; font-weight: 800; color: #111; }
+  .level-subtitle { font-size: 12px; color: #888; margin-top: 2px; }
+  .level-tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-left: 8px; }
+  .level-tag.driver { background: #ffe0e0; color: #c0392b; }
+  .level-tag.system { background: #e0f4e0; color: #27ae60; }
+  .level-tag.unknown { background: #fff3e0; color: #e67e22; }
+
+  .level-table { width: 100%; border-collapse: collapse; }
+  .level-table td { padding: 7px 10px; font-size: 14px; color: #333; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .level-table td:first-child { color: #888; font-weight: 600; width: 80px; font-size: 13px; }
+  .level-table tr:last-child td { border-bottom: none; }
+  .level-table .highlight { color: #c0392b; font-weight: 700; }
+
+  .level-examples { background: #f8f9fc; border-radius: 10px; padding: 10px 14px; margin-top: 12px; font-size: 13px; color: #555; line-height: 1.7; }
+
+  /* Compare section */
+  .compare-card { background: white; border-radius: 16px; padding: 24px 20px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .compare-title { font-size: 18px; font-weight: 800; color: #1a1a2e; margin-bottom: 16px; }
+  .compare-table { width: 100%; border-collapse: collapse; }
+  .compare-table th { background: #1a3a5c; color: white; padding: 12px 16px; font-size: 14px; font-weight: 700; text-align: left; }
+  .compare-table td { padding: 12px 16px; font-size: 14px; color: #333; border-bottom: 1px solid #f0f0f0; background: #fafafa; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: #eef4ff; }
+  .compare-table .name { font-weight: 700; color: #111; }
+  .compare-table .price { font-weight: 800; color: #c0392b; font-size: 16px; }
+
+  /* Warning cards */
+  .warning-card { background: white; border-radius: 16px; padding: 22px 20px; margin-bottom: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border-left: 5px solid #e74c3c; }
+  .warning-title { font-size: 17px; font-weight: 800; color: #c0392b; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .warning-body { font-size: 14px; color: #444; line-height: 1.8; }
+  .warning-highlight { background: #fff5f5; border-radius: 8px; padding: 10px 14px; margin-top: 10px; color: #c0392b; font-size: 14px; font-weight: 700; line-height: 1.6; }
+
+  /* Disclaimer */
+  .disclaimer { background: #f8f9fc; border-radius: 12px; padding: 16px 20px; margin: 0 auto 30px; max-width: 900px; font-size: 13px; color: #888; line-height: 1.7; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: #aaa; }
+
+  @media (max-width: 640px) {
+    .header h1 { font-size: 22px; }
+    .compare-table { display: block; overflow-x: auto; }
+    .level-badge { width: 40px; height: 40px; font-size: 18px; }
+    .level-title { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🚗 汽车自动驾驶级别图解</h1>
+  <p>谁开车 · 能否脱手 · 事故谁负责 · 一张图说清楚</p>
+  <div class="source">参考标准：GB/T 40429-2021 中国国标</div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span>📋</span>一张表看懂 L0 ~ L5</div>
+
+  <!-- L0 -->
+  <div class="level-card l0">
+    <div class="level-header">
+      <div class="level-badge">L0</div>
+      <div>
+        <div class="level-title">L0 无驾驶自动化 <span class="level-tag driver">驾驶员100%负责</span></div>
+        <div class="level-subtitle">无驾驶自动化，完全人工操控</div>
+      </div>
+    </div>
+    <table class="level-table">
+      <tr><td>谁开车</td><td class="highlight">驾驶员（100%全程操控）</td></tr>
+      <tr><td>能否脱手</td><td class="highlight">绝对不能，必须手握方向盘</td></tr>
+      <tr><td>事故责任</td><td class="highlight">驾驶员全权负责</td></tr>
+      <tr><td>核心能力</td><td>只能控制车速 或 方向（二选一）</td></tr>
+    </table>
+    <div class="level-examples">📌 代表功能：定速巡航、车道偏离预警、刹车预警 | 常见于：早期入门燃油车</div>
+  </div>
+
+  <!-- L1 -->
+  <div class="level-card l1">
+    <div class="level-header">
+      <div class="level-badge">L1</div>
+      <div>
+        <div class="level-title">L1 驾驶辅助 <span class="level-tag driver">驾驶员100%负责</span></div>
+        <div class="level-subtitle">纵向+横向二选一辅助，系统只做一件事</div>
+      </div>
+    </div>
+    <table class="level-table">
+      <tr><td>谁开车</td><td class="highlight">驾驶员（全程负责）</td></tr>
+      <tr><td>能否脱手</td><td class="highlight">绝对不能，手不能离开方向盘</td></tr>
+      <tr><td>事故责任</td><td class="highlight">驾驶员全权负责</td></tr>
+      <tr><td>核心能力</td><td>纵向（跟车/加减速）或 横向（车道居中）二选一</td></tr>
+    </table>
+    <div class="level-examples">📌 代表功能：ACC自适应巡航（只能控速）、车道保持辅助（LKA）| 常见于：家用A级车</div>
+  </div>
+
+  <!-- L2 -->
+  <div class="level-card l2">
+    <div class="level-header">
+      <div class="level-badge">L2</div>
+      <div>
+        <div class="level-title">L2 组合驾驶辅助 <span class="level-tag driver">驾驶员100%负责</span></div>
+        <div class="level-subtitle">同时控制纵向+横向，但驾驶员必须时刻监控</div>
+      </div>
+    </div>
+    <table class="level-table">
+      <tr><td>谁开车</td><td class="highlight">驾驶员（全程负责，随时准备接管）</td></tr>
+      <tr><td>能否脱手</td><td class="highlight">短暂脱手会报警，必须时刻监控路况</td></tr>
+      <tr><td>事故责任</td><td class="highlight">驾驶员全权负责（出事算司机）</td></tr>
+      <tr><td>核心能力</td><td>ACC全速域跟车 + 车道居中（LCC）同时开启</td></tr>
+    </table>
+    <div class="level-examples">
+      📌 <strong>高速NCA / 城区NCA：本质都是L2级辅助驾驶</strong><br>
+      📌 主流品牌（小鹏/特斯拉/理想/比亚迪等）的高速/城区智驾均属L2
+    </div>
+  </div>
+
+  <!-- L3 -->
+  <div class="level-card l3">
+    <div class="level-header">
+      <div class="level-badge">L3</div>
+      <div>
+        <div class="level-title">L3 有条件自动驾驶 <span class="level-tag system">限定场景内系统负责</span></div>
+        <div class="level-subtitle">国内首批合规量产，驾驶员可脱手 · 车厂担责</div>
+      </div>
+    </div>
+    <table class="level-table">
+      <tr><td>谁开车</td><td class="highlight">限定场景内 → <strong style="color:#27ae60">车辆负责驾驶</strong></td></tr>
+      <tr><td>能否脱手</td><td class="highlight">可长时间脱手，不用紧盯路面，可刷手机</td></tr>
+      <tr><td>事故责任</td><td class="highlight">场景内 → <strong style="color:#27ae60">车企承担主要责任</strong></td></tr>
+      <tr><td>核心能力</td><td>高速/城市快速路合法脱手自动驾驶，需冗余硬件+国家L3准入资质</td></tr>
+    </table>
+    <div class="level-examples">
+      ⚠️ <strong>L3使用限制：</strong>仅限封闭高速、城市快速路；雨雪大雾等恶劣天气系统自动退出L3降级L2；普通城市道路/小区/乡间小路无法使用L3
+    </div>
+  </div>
+
+  <!-- L4 -->
+  <div class="level-card l4">
+    <div class="level-header">
+      <div class="level-badge">L4</div>
+      <div>
+        <div class="level-title">L4 高度自动驾驶 <span class="level-tag system">限定区域系统负责</span></div>
+        <div class="level-subtitle">特定区域内完全自动驾驶，无需驾驶员介入</div>
+      </div>
+    </div>
+    <table class="level-table">
+      <tr><td>谁开车</td><td class="highlight">车辆负责（限定地理围栏内）</td></tr>
+      <tr><td>能否脱手</td><td class="highlight">完全脱手，无需驾驶员接管</td></tr>
+      <tr><td>事故责任</td><td class="highlight">车企/运营商负责</td></tr>
+      <tr><td>核心能力</td><td>robotaxi、无人配送、限定区域无人公交（已小规模商用）</td></tr>
+    </table>
+    <div class="level-examples">📌 代表：百度萝卜快跑、小马智行等robotaxi试点运营 | 暂未面向私人用户量产</div>
+  </div>
+
+  <!-- L5 -->
+  <div class="level-card l5">
+    <div class="level-header">
+      <div class="level-badge">L5</div>
+      <div>
+        <div class="level-title">L5 完全自动驾驶 <span class="level-tag system">任意场景系统负责</span></div>
+        <div class="level-subtitle">全场景、完全替代人类驾驶员（暂未实现）</div>
+      </div>
+    </div>
+    <table class="level-table">
+      <tr><td>谁开车</td><td class="highlight">车辆完全负责（无方向盘/踏板概念）</td></tr>
+      <tr><td>能否脱手</td><td class="highlight">完全脱手，任何场景均可</td></tr>
+      <tr><td>事故责任</td><td class="highlight">车企/系统负责</td></tr>
+      <tr><td>核心能力</td><td>任何道路、天气、地域均可自动驾驶</td></tr>
+    </table>
+    <div class="level-examples">📌 未来愿景：车内没有驾驶员座位概念，目前没有任何量产车型达到此级别</div>
+  </div>
+</div>
+
+<!-- 两个误区 -->
+<div class="section">
+  <div class="section-title"><span>⚠️</span>两个重要误区（买车的必看）</div>
+
+  <div class="warning-card">
+    <div class="warning-title">🚫 误区一：带 NCA 自动领航 = L3 自动驾驶？</div>
+    <div class="warning-body">
+      <strong>错！目前市面上所有品牌的 NCA（高速/城区自动领航），法律上都是 L2 级别辅助驾驶。</strong>
+    </div>
+    <div class="warning-highlight">
+      ⚠️ <strong>小鹏、特斯拉、理想、比亚迪、蔚来、华为等所有品牌的城市/高速NCA，都是L2级辅助驾驶。</strong><br>
+      手不能长时间离开方向盘，发生事故<strong>司机仍需承担全部责任</strong>。<br>
+      只有同时满足：① 获得国家L3准入资质 ② 搭载冗余硬件 两个条件，才能合法L3脱手行驶。
+    </div>
+  </div>
+
+  <div class="warning-card">
+    <div class="warning-title">🚫 误区二：L3 = 全路段自动驾驶，想怎么开就怎么开？</div>
+    <div class="warning-body">
+      <strong>错！L3有严格的使用场景限制，不是"全路段自动驾驶"。</strong>
+    </div>
+    <div class="warning-highlight">
+      🚫 <strong>L3无法使用的场景：</strong><br>
+      · 城市普通红绿灯道路 ❌<br>
+      · 小区内部道路 ❌<br>
+      · 乡间小路 ❌<br>
+      · 路况复杂的城中村道路 ❌<br><br>
+      ✅ <strong>L3可以使用的场景：</strong><br>
+      · 高速公路（封闭）✅<br>
+      · 城市快速路（封闭）✅<br>
+      · 良好天气+标准路况 ✅<br>
+      · 雨雪大雾等恶劣天气 → 系统自动降级L2，需人接管 ⚠️
+    </div>
+  </div>
+</div>
+
+<!-- S800 对比 -->
+<div class="section">
+  <div class="section-title"><span>🚘</span>尊界 S800 两个版本智能驾驶对比</div>
+
+  <div class="compare-card">
+    <div class="compare-title">华为尊界 S800 普通版 vs 典藏大观</div>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>对比项</th>
+          <th>普通版 S800（70.8万起）</th>
+          <th>典藏大观（138.8万起）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>智驾代际</td>
+          <td class="name">ADS 3.0 / 4.0</td>
+          <td class="name">ADS 5（最新代）</td>
+        </tr>
+        <tr>
+          <td>激光雷达</td>
+          <td>前向3颗（双冗余）</td>
+          <td>6颗立体融合感知矩阵</td>
+        </tr>
+        <tr>
+          <td>防碰撞系统</td>
+          <td>CAS（版本略低）</td>
+          <td>CAS 5.0（全维防碰撞）</td>
+        </tr>
+        <tr>
+          <td>自动驾驶级别</td>
+          <td>L2+ 高速/城区NCA（驾驶员负责）</td>
+          <td>L3级架构（限定场景可脱手）</td>
+        </tr>
+        <tr>
+          <td>硬件冗余</td>
+          <td>4颗激光雷达 + 单计算平台</td>
+          <td>全链路双冗余（双SoC+双电源+双传感器）</td>
+        </tr>
+        <tr>
+          <td>车位到车位</td>
+          <td>支持（2.0版本）</td>
+          <td>车位到车位3.0（全场景覆盖）</td>
+        </tr>
+        <tr>
+          <td>L3适用场景</td>
+          <td>高速+良好天气+标准路况</td>
+          <td>更宽泛，恶劣天气可用范围更大</td>
+        </tr>
+        <tr>
+          <td>未来升级</td>
+          <td>需硬件升级才能支持全场景L3</td>
+          <td>预埋全链路冗余，法规开放后直接OTA升级</td>
+        </tr>
+        <tr>
+          <td>价格</td>
+          <td class="price">70.8万起</td>
+          <td class="price">138.8万起（+68万）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="disclaimer">
+  📌 <strong>免责声明：</strong>本页面信息综合自公开资料整理，仅供参考。具体配置、功能及价格以官方发布为准。购买决策前请咨询官方或实地试驾体验。
+</div>
+
+<div class="footer">
+  资料来源：GB/T 40429-2021 · 各品牌官网 · 公开报道整理
+</div>
+
+</body>
+</html>
