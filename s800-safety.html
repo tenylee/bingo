@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华为尊界S800 安全数据发布</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f8; color: #222; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 100%); color: white; padding: 44px 24px; text-align: center; }
+  .header h1 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+  .header p { font-size: 14px; opacity: 0.85; }
+  .header .date { font-size: 12px; opacity: 0.6; margin-top: 6px; }
+
+  /* Section */
+  .section { padding: 28px 20px; max-width: 900px; margin: 0 auto; }
+  .section-title { font-size: 20px; font-weight: 800; color: #1a3a5c; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-title span { font-size: 24px; }
+
+  /* Quote */
+  .quote-card { background: white; border-radius: 16px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); text-align: center; }
+  .quote-icon { font-size: 32px; margin-bottom: 10px; }
+  .quote-text { font-size: 22px; font-weight: 800; color: #1a1a2e; line-height: 1.6; }
+  .quote-author { font-size: 13px; color: #888; margin-top: 10px; }
+
+  /* Stats grid */
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .stat-card { background: white; border-radius: 16px; padding: 20px 14px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .stat-num { font-size: 32px; font-weight: 900; color: #c0392b; line-height: 1.1; margin-bottom: 6px; }
+  .stat-label { font-size: 13px; color: #555; line-height: 1.4; }
+  .stat-sub { font-size: 11px; color: #aaa; margin-top: 4px; }
+
+  /* Feature cards */
+  .feat-card { background: white; border-radius: 16px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .feat-card-title { font-size: 17px; font-weight: 800; color: #1a1a2e; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .feat-body { font-size: 14px; color: #444; line-height: 1.8; }
+  .feat-highlight { background: #fff5f5; border-radius: 10px; padding: 10px 14px; margin-top: 10px; font-size: 14px; color: #c0392b; font-weight: 700; }
+
+  /* Divider */
+  .divider { text-align: center; margin: 20px 0; font-size: 13px; color: #aaa; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: #aaa; max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 640px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 22px; }
+    .stat-num { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🛡️ 华为安全数据发布</h1>
+  <p>6月25日尊界品牌盛典 · 余承东公布核心安全数据</p>
+  <div class="date">数据截至 2026年6月24日</div>
+</div>
+
+<div class="section">
+  <div class="quote-card">
+    <div class="quote-icon">💬</div>
+    <div class="quote-text">安全才是最大的豪华</div>
+    <div class="quote-author">—— 余承东，尊界品牌盛典暨S800典藏大观发布会</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span>📊</span>华为ADS安全数据</div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">447.9万</div>
+      <div class="stat-label">次</div>
+      <div class="stat-label">主动安全系统<br>累计避免碰撞</div>
+      <div class="stat-sub">截至2026.6.24</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">121.86亿</div>
+      <div class="stat-label">公里</div>
+      <div class="stat-label">乾崑智驾<br>累计辅助驾驶里程</div>
+      <div class="stat-sub">数据截至2026.6.24</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4.66倍</div>
+      <div class="stat-label">更安全</div>
+      <div class="stat-label">平均智驾安全系数<br>vs 人工驾驶</div>
+      <div class="stat-sub">中国车主均值对比</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span>🛡️</span>尊界S800 典藏大观专属安全升级</div>
+
+  <div class="feat-card">
+    <div class="feat-card-title">🔗 全链路冗余安全架构</div>
+    <div class="feat-body">
+      为L3级自动驾驶打造的全链路冗余体系，任何单点失效不影响整体安全：
+    </div>
+    <div class="feat-body" style="margin-top:8px; font-size:14px; color:#333;">
+      · <strong>双组传感器</strong> — 传感器互为备份<br>
+      · <strong>双连接器</strong> — 通信链路冗余<br>
+      · <strong>双SoC芯片</strong> — 计算平台备份<br>
+      · <strong>双路电源</strong> — 供电系统冗余
+    </div>
+    <div class="feat-highlight">
+      ⚠️ 普通版为4雷达+单计算平台；典藏版为全链路双冗余，标准远超国标L3
+    </div>
+  </div>
+
+  <div class="feat-card">
+    <div class="feat-card-title">👁️ 6激光雷达立体融合感知矩阵</div>
+    <div class="feat-body">
+      典藏版搭载华为最强感知系统，前向3激光雷达双冗余配置，最远探测距离更远、目标识别精度更高，在复杂路况下提供更全面的环境感知能力。
+    </div>
+  </div>
+
+  <div class="feat-card">
+    <div class="feat-card-title">🛡️ 全维防碰撞系统 CAS 5.0</div>
+    <div class="feat-body">
+      华为最新一代全维防碰撞系统，覆盖前向、侧向、后向全方位主动安全，复杂场景下的避险能力进一步提升。
+    </div>
+  </div>
+
+  <div class="feat-card">
+    <div class="feat-card-title">🚿 首创激光雷达洗刮一体系统</div>
+    <div class="feat-body">
+      全球首款量产的激光雷达智能清洗系统，可对雷达脏污进行智能检测并自动完成清洗。减少灰尘、雨水、泥渍对感知系统的影响，提升恶劣天气下的感知稳定性。
+    </div>
+  </div>
+
+  <div class="feat-card">
+    <div class="feat-card-title">🧠 全域融合架构 2.0</div>
+    <div class="feat-body">
+      打通车辆智能、安全、驾乘和豪华体验之间的协同能力，让各系统之间实现信息共享与联动，提升整体安全与舒适体验。
+    </div>
+  </div>
+
+  <div class="feat-card">
+    <div class="feat-card-title">🚘 L3级自动驾驶架构</div>
+    <div class="feat-body">
+      典藏版搭载更高阶自动驾驶计算冗余架构，余承东在发布会上明确表示尊界S800典藏大观将<strong>实现L3级自动驾驶能力</strong>（需等待国家法规开放后OTA升级）。
+    </div>
+  </div>
+
+</div>
+
+<div class="section">
+  <div class="section-title"><span>📋</span>普通版 vs 典藏版安全配置对比</div>
+  <div class="feat-card" style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <thead>
+        <tr style="background:#1a3a5c;color:white;">
+          <th style="padding:12px 16px;text-align:left;border-radius:8px 0 0 0;">对比项</th>
+          <th style="padding:12px 16px;text-align:left;">普通版 S800</th>
+          <th style="padding:12px 16px;text-align:left;border-radius:0 8px 0 0;">典藏大观</th>
+        </tr>
+      </thead>
+      <tbody style="background:#fafafa;">
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:11px 16px;font-weight:700;color:#333;">激光雷达</td>
+          <td style="padding:11px 16px;color:#555;">前向3颗（双冗余）</td>
+          <td style="padding:11px 16px;font-weight:700;color:#c0392b;">6颗立体融合感知矩阵</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:11px 16px;font-weight:700;color:#333;">计算平台</td>
+          <td style="padding:11px 16px;color:#555;">单SoC</td>
+          <td style="padding:11px 16px;font-weight:700;color:#c0392b;">双SoC全链路冗余</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:11px 16px;font-weight:700;color:#333;">防碰撞系统</td>
+          <td style="padding:11px 16px;color:#555;">CAS</td>
+          <td style="padding:11px 16px;font-weight:700;color:#c0392b;">CAS 5.0 全维防碰撞</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:11px 16px;font-weight:700;color:#333;">电源冗余</td>
+          <td style="padding:11px 16px;color:#555;">单路电源</td>
+          <td style="padding:11px 16px;font-weight:700;color:#c0392b;">双路电源冗余</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:11px 16px;font-weight:700;color:#333;">L3架构</td>
+          <td style="padding:11px 16px;color:#555;">满足国标L3最低要求</td>
+          <td style="padding:11px 16px;font-weight:700;color:#c0392b;">全链路冗余，超出国标，领先行业</td>
+        </tr>
+        <tr>
+          <td style="padding:11px 16px;font-weight:700;color:#333;">激光雷达清洗</td>
+          <td style="padding:11px 16px;color:#555;">—</td>
+          <td style="padding:11px 16px;font-weight:700;color:#c0392b;">✅ 首创洗刮一体系统</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  数据来源：2026年6月25日鸿蒙智行尊界品牌盛典暨S800典藏大观发布会 · 余承东演讲原文
+</div>
+
+</body>
+</html>
